@@ -1,0 +1,43 @@
+Notes
+
+Installed Software to get project done
+-------------------------------------
+Virtual Box
+Virtual Box additions
+Vagrant
+Packer
+Ruby (used exisiting version that came with OSX 10.9.5)
+
+Steps
+----------
+Forked https://github.com/thasmo/packer.templates then cloned packer.templates from here https://github.com/brussell/packer.templates
+
+Created a copy of the template ubuntu-14.04.json and named it ubuntu-14.04-i386-only.json
+
+Edited this json file to remove references to amd64 ubuntu and vmware since we're using virtualbox. Main bonus was not having to download more than one Ubuntu iso.
+
+packer build ubuntu-14.04-i386-only.json
+
+[hurry up and wait]
+
+vagrant box add ubuntu14_i386 ubuntu-14.04.i386.virtualbox.box
+vagrant init ubuntu14_i386
+vagrant up
+
+vagrant ssh
+
+[Bingo! I'm in!]
+
+
+ToDo
+-----
++ edit shell scripts to install python and django stuff
++ create shell scripts to make it easier to create and launch box without typing many comands in the CLI. (It make it quick and easy for students)
++ Some smart script stuff to get the latest supported Ubuntu, Python, Django (aka self updating?)
+
+
+Helpful URLs
+--------------
+http://www.packer.io/docs
+https://blog.engineyard.com/2014/building-a-vagrant-box
+https://docs.vagrantup.com/v2/getting-started/index.html
